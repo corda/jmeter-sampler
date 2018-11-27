@@ -1,0 +1,45 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.2.60'
+}
+
+group 'corda'
+version '1.0-SNAPSHOT'
+
+repositories {
+    ext.artifactory_contextUrl = 'https://ci-artifactory.corda.r3cev.com/artifactory'
+    mavenLocal()
+    mavenCentral()
+    maven { url "$artifactory_contextUrl/corda-dependencies" }
+}
+
+dependencies {
+
+    ext.jmeterVersion = 3.3
+    ext.cordaVersion = "4.0-SNAPSHOT"
+
+    // Kotlin dependency for the Kotlin example
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // The jmeter-corda package has the base classes that form the glue between JMeter and Corda. All Corda performance
+    // samplers need to depend on thi
+    compile group: "com.r3.corda", name: "jmeter-corda", version: cordaVersion
+
+    // Any sampler needs to depend on Corda RPC to invoke flows - the RPC client is used to actually drive the node
+    compile group: "com.r3.corda", name: "corda-rpc", version: cordaVersion
+
+    // The example sampler use the performance test flows that come with the Corda Performance test suite, therefore
+    // it needs to depend on this package so the types are available to create the flows and parse the results.
+    // To create a sampler for a different CorDapp, a dependency on that app needs to be added here.
+    compile group: "com.r3.corda", name: "corda-ptflows", version: cordaVersion
+
+    // Dependency on Apache JMeter
+    compile group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: jmeterVersion // 'compile' because we extend Java sampler.
+
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
