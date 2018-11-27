@@ -9,6 +9,7 @@ import net.corda.core.messaging.CordaRPCOps
 import net.corda.core.utilities.OpaqueBytes
 import org.apache.jmeter.config.Argument
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext
+import org.apache.jmeter.samplers.SampleResult
 
 /**
  * This class is a copy of the CashIssueAndPay sampler available in the JMeter Corda package in the performance test suite.
@@ -74,4 +75,12 @@ class ExampleSampler : AbstractSampler() {
      */
     override val additionalArgs: Set<Argument>
         get() = setOf(AbstractSampler.notary, otherParty, coinSelection, anonymousIdentities)
+
+    /**
+     * This method gets invoked after each sample result has been collected and allows to add extra information to the
+     * sample. Overriding it is optional, by default it is a no op.
+     */
+    override fun additionalFlowResponseProcessing(context: JavaSamplerContext, sample: SampleResult, response: Any?) {
+        // Optionally add data from the response to the sample (e.g. performance figures the flow has collected)
+    }
 }

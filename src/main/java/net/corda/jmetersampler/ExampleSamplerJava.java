@@ -9,6 +9,7 @@ import net.corda.core.messaging.CordaRPCOps;
 import net.corda.core.utilities.OpaqueBytes;
 import org.apache.jmeter.config.Argument;
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
+import org.apache.jmeter.samplers.SampleResult;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Currency;
@@ -80,5 +81,14 @@ class ExampleSamplerJava extends AbstractSampler {
     @Override
     public Set<Argument> getAdditionalArgs() {
         return Stream.of(AbstractSampler.getNotary(), otherParty, coinSelection, anonymousIdentities).collect(Collectors.toCollection(HashSet::new));
+    }
+
+    /**
+     * This method gets invoked after each sample result has been collected and allows to add extra information to the
+     * sample. Overriding it is optional, by default it is a no op.
+     */
+    @Override
+    protected void additionalFlowResponseProcessing(JavaSamplerContext context, SampleResult sample, Object response) {
+        // Optionally add data from the response to the sample (e.g. performance figures the flow has collected)
     }
 }
