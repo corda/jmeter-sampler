@@ -81,5 +81,4 @@ class ExampleSamplerJava extends AbstractSampler {
     public Set<Argument> getAdditionalArgs() {
         return Stream.of(AbstractSampler.getNotary(), otherParty, coinSelection, anonymousIdentities).collect(Collectors.toCollection(HashSet::new));
     }
-
 }

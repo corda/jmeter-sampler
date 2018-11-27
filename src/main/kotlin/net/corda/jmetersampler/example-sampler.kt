@@ -37,14 +37,14 @@ class ExampleSampler : AbstractSampler() {
     override fun setupTest(rpcProxy: CordaRPCOps, testContext: JavaSamplerContext) {
         // this method initialises the notary field on the base class - not all samplers might need a notary, so it has
         // to be called explicitly if you want to use the notary field.
-        getNotaryIdentity(rpcProxy,testContext)
+        getNotaryIdentity(rpcProxy, testContext)
 
         // This is a generic helper to turn an X500 name into a Corda identity via RPC
         counterParty = getIdentity(rpcProxy, testContext, otherParty)
 
         // this is how values from sampler arguments are read - the test context can extract the value
-        useCoinSelection = testContext.getParameter(coinSelection.name, coinSelection.value).toBoolean()
-        useAnonymousIdentities = testContext.getParameter(anonymousIdentities.name, anonymousIdentities.value).toBoolean()
+        useCoinSelection = testContext.getParameter(coinSelection.name, coinSelection.value)!!.toBoolean()
+        useAnonymousIdentities = testContext.getParameter(anonymousIdentities.name, anonymousIdentities.value)!!.toBoolean()
     }
 
     /**
