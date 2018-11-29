@@ -1,8 +1,9 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.2.60'
+    id 'maven'
 }
 
-group 'corda'
+group 'com.r3.corda'
 version '1.0-SNAPSHOT'
 
 repositories {
