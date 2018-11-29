@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 
 import static com.r3.corda.enterprise.perftestcordapp.Currencies.POUNDS;
 
-class ExampleSamplerJava extends AbstractSampler {
+public class ExampleSamplerJava extends AbstractSampler {
     // we need to create an argument instance for each test plan argument we are expecting
     static private Argument otherParty = new Argument("otherPartyName", "", "<meta>", "The X500 name of the payee.");
     static private Argument coinSelection = new Argument("useCoinSelection", "false", "<meta>", "True to use coin selection and false (or anything else) to avoid coin selection.");
