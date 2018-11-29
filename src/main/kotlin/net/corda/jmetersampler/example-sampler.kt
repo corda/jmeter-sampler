@@ -19,7 +19,7 @@ import org.apache.jmeter.samplers.SampleResult
  * helper methods that are required to run a CorDapp flow.
  * Anything that is specific to the CorDapp or the flow should go into the derived class.
  */
-class ExampleSampler : AbstractSampler() {
+class ExampleSamplerKotlin : AbstractSampler() {
     companion object JMeterProperties {
         // we need to create an argument instance for each test plan argument we are expecting
         val otherParty = Argument("otherPartyName", "", "<meta>", "The X500 name of the payee.")
