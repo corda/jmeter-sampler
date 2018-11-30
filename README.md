@@ -90,7 +90,11 @@ in the future - please contact your Corda support representative at R3 if you ar
  
 ### Running a Custom Sampler
 
-To use a custom sampler, it needs to be loaded into JMeter so it can be used in a testplan. When using JMeter
-remotely, it is crucial to load the same samplers in the client and any JMeter server instances.
+To use a custom sampler, it needs to be loaded into JMeter so it can be used in a testplan. 
+Additional sampler jars can be added to tJMeter Corda using the `-XadditionalSearchPaths=<path to jar file>`
+command line argument.
 
-Details TBD
+When using JMeter server instances for remote invocations, it is crucial that the same additional jar gets loaded
+in the client instance and all server intances that this client connects to. See the [performance suite
+documentation](https://docs.corda.r3.com/performance-testing/jmeter-samplers.html#custom-sampler-clients) 
+for details how to set up a custom sampler jar.
