@@ -81,7 +81,8 @@ in order to enrich the sample result with any information from the flow response
 is a no op, overriding it is not required.
 
 Any additional dependencies of the custom sampler (e.g. the CorDapp to be tested) need to be added to the
-build.gradle file.
+build.gradle file. In our example, we had to add the `corda-finance` CorDapp in order to write the 
+`CashIssueSampler` that uses this CorDapp.
 
 Any sampler that drives Corda in a fundamental different way needs to implement `AbstractJavaSamplerClient`
 itself and handle all the Corda details in custom code. Support for different kinds of samplers might be added
@@ -92,7 +93,7 @@ in the future - please contact your Corda support representative at R3 if you ar
 
 To use a custom sampler, it needs to be loaded into JMeter so it can be used in a testplan. 
 Additional sampler jars can be added to tJMeter Corda using the `-XadditionalSearchPaths=<path to jar file>`
-command line argument.
+command line argument, along with any JARs/classes it depends on.
 
 When using JMeter server instances for remote invocations, it is crucial that the same additional jar gets loaded
 in the client instance and all server intances that this client connects to. See the [performance suite

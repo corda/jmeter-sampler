@@ -33,6 +33,10 @@ dependencies {
     // To create a sampler for a different CorDapp, a dependency on that app needs to be added here.
     compile group: "com.r3.corda", name: "corda-ptflows", version: cordaVersion
 
+    // A second sample uses the finance CorDapp to show testing using a difference CorDapp that is not included in the
+    // performance suite bundle
+    compile group: "com.r3.corda", name: "corda-finance", version: cordaVersion
+
     // Dependency on Apache JMeter
     compile group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: jmeterVersion // 'compile' because we extend Java sampler.
 
