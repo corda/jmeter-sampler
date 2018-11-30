@@ -11,7 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Example Requests" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -24,9 +24,14 @@
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+            <stringProp name="TestPlan.comments">A few samples how to use the example samplers from this SDK
+            </stringProp>
       </ThreadGroup>
       <hashTree>
-        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request" enabled="true">
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request" enabled="false">
+              <stringProp name="TestPlan.comments">A sample request sampler using the Java Example Sampler - currently
+                  disabled. You can enable it by right clicking on it in the tree structure on the left hand side.
+              </stringProp>
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="label" elementType="Argument">
@@ -46,31 +51,31 @@
               </elementProp>
               <elementProp name="username" elementType="Argument">
                 <stringProp name="Argument.name">username</stringProp>
-                <stringProp name="Argument.value">corda</stringProp>
+                  <stringProp name="Argument.value">&lt;RPC user name&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="password" elementType="Argument">
                 <stringProp name="Argument.name">password</stringProp>
-                <stringProp name="Argument.value">corda_is_awesome</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-              <elementProp name="notaryName" elementType="Argument">
-                <stringProp name="Argument.name">notaryName</stringProp>
-                <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.value">&lt;RPC password&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="otherPartyName" elementType="Argument">
                 <stringProp name="Argument.name">otherPartyName</stringProp>
-                <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.value">&lt;X500 name of the payee&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp name="useCoinSelection" elementType="Argument">
-                <stringProp name="Argument.name">useCoinSelection</stringProp>
+                <elementProp name="anonymousIdentities" elementType="Argument">
+                    <stringProp name="Argument.name">anonymousIdentities</stringProp>
                 <stringProp name="Argument.value">false</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
-              <elementProp name="anonymousIdentities" elementType="Argument">
-                <stringProp name="Argument.name">anonymousIdentities</stringProp>
+                <elementProp name="notaryName" elementType="Argument">
+                    <stringProp name="Argument.name">notaryName</stringProp>
+                    <stringProp name="Argument.value">&lt;X500 name of the notary to use&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="useCoinSelection" elementType="Argument">
+                    <stringProp name="Argument.name">useCoinSelection</stringProp>
                 <stringProp name="Argument.value">false</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -79,7 +84,10 @@
           <stringProp name="classname">net.corda.jmetersampler.ExampleSamplerJava</stringProp>
         </JavaSampler>
         <hashTree/>
-        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request" enabled="true">
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Kotlin Request" enabled="false">
+              <stringProp name="TestPlan.comments">A sample request sampler using the Kotlin Example Sampler - currently
+                  disabled. You can enable it by right clicking on it in the tree structure on the left hand side.
+              </stringProp>
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="label" elementType="Argument">
@@ -99,22 +107,22 @@
               </elementProp>
               <elementProp name="username" elementType="Argument">
                 <stringProp name="Argument.name">username</stringProp>
-                <stringProp name="Argument.value">corda</stringProp>
+                  <stringProp name="Argument.value">&lt;RPC user name&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="password" elementType="Argument">
                 <stringProp name="Argument.name">password</stringProp>
-                <stringProp name="Argument.value">corda_is_awesome</stringProp>
+                  <stringProp name="Argument.value">&lt;RPC password&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="notaryName" elementType="Argument">
                 <stringProp name="Argument.name">notaryName</stringProp>
-                <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.value">&lt;X500 name of the notary to use&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="otherPartyName" elementType="Argument">
                 <stringProp name="Argument.name">otherPartyName</stringProp>
-                <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.value">&lt;X500 name of the payee&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="useCoinSelection" elementType="Argument">
@@ -130,9 +138,87 @@
             </collectionProp>
           </elementProp>
           <stringProp name="classname">net.corda.jmetersampler.ExampleSamplerKotlin</stringProp>
-        </JavaSampler>
+          </JavaSampler>
+          <hashTree/>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Finance Issue Request"
+                       enabled="true">
+              <stringProp name="TestPlan.comments">Example using the corda-finance CashIssueFlow</stringProp>
+              <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments"
+                           enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                      <elementProp name="label" elementType="Argument">
+                          <stringProp name="Argument.name">label</stringProp>
+                          <stringProp name="Argument.value">${__samplerName}</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                      <elementProp name="host" elementType="Argument">
+                          <stringProp name="Argument.name">host</stringProp>
+                          <stringProp name="Argument.value">localhost</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                      <elementProp name="port" elementType="Argument">
+                          <stringProp name="Argument.name">port</stringProp>
+                          <stringProp name="Argument.value">10000</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                      <elementProp name="username" elementType="Argument">
+                          <stringProp name="Argument.name">username</stringProp>
+                          <stringProp name="Argument.value">&lt;RPC user name&gt;</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                      <elementProp name="password" elementType="Argument">
+                          <stringProp name="Argument.name">password</stringProp>
+                          <stringProp name="Argument.value">&lt;RPC password&gt;</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                      <elementProp name="notaryName" elementType="Argument">
+                          <stringProp name="Argument.name">notaryName</stringProp>
+                          <stringProp name="Argument.value">&lt;X500 name of the notary to use&gt;</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                  </collectionProp>
+              </elementProp>
+              <stringProp name="classname">net.corda.jmetersampler.CashIssueSampler</stringProp>
+          </JavaSampler>
         <hashTree/>
       </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table"
+                         enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                    <time>true</time>
+                    <latency>true</latency>
+                    <timestamp>true</timestamp>
+                    <success>true</success>
+                    <label>true</label>
+                    <code>true</code>
+                    <message>true</message>
+                    <threadName>true</threadName>
+                    <dataType>true</dataType>
+                    <encoding>false</encoding>
+                    <assertions>true</assertions>
+                    <subresults>true</subresults>
+                    <responseData>false</responseData>
+                    <samplerData>false</samplerData>
+                    <xml>false</xml>
+                    <fieldNames>true</fieldNames>
+                    <responseHeaders>false</responseHeaders>
+                    <requestHeaders>false</requestHeaders>
+                    <responseDataOnError>false</responseDataOnError>
+                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                    <assertionsResultsToSave>0</assertionsResultsToSave>
+                    <bytes>true</bytes>
+                    <sentBytes>true</sentBytes>
+                    <threadCounts>true</threadCounts>
+                    <idleTime>true</idleTime>
+                    <connectTime>true</connectTime>
+                </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
     </hashTree>
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
       <boolProp name="WorkBench.save">true</boolProp>
