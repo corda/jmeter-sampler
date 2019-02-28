@@ -30,7 +30,7 @@ repositories {
 dependencies {
 
     ext.jmeterVersion = 3.3
-    ext.cordaVersion = "4.0-SNAPSHOT"
+    ext.cordaVersion = "5.0-SNAPSHOT"
 
     // Kotlin dependency for the Kotlin example
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
