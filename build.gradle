@@ -6,8 +6,22 @@ plugins {
 group 'com.r3.corda'
 version '1.0-SNAPSHOT'
 
+def artifactory_user = System.getenv("CORDA_ARTIFACTORY_USER")
+def artifactory_password = System.getenv("CORDA_ARTIFACTORY_PASSWORD")
+
 repositories {
     ext.artifactory_contextUrl = 'https://ci-artifactory.corda.r3cev.com/artifactory'
+
+    if ( artifactory_user != null && artifactory_password != null ){
+        maven{ 
+            url "$artifactory_contextUrl/corda-enterprise"
+            credentials {
+                username artifactory_user
+                password artifactory_password
+            }
+        }
+    }
+        
     mavenLocal()
     mavenCentral()
     maven { url "$artifactory_contextUrl/corda-dependencies" }
