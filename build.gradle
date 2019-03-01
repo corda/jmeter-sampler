@@ -25,12 +25,14 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url "$artifactory_contextUrl/corda-dependencies" }
+    maven { url "$artifactory_contextUrl/corda" }
 }
 
 dependencies {
 
     ext.jmeterVersion = 3.3
     ext.cordaVersion = "4.0-RC04"
+    ext.cordaOsVersion = "4.0"
 
     // Kotlin dependency for the Kotlin example
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
@@ -49,7 +51,8 @@ dependencies {
 
     // A second sample uses the finance CorDapp to show testing using a difference CorDapp that is not included in the
     // performance suite bundle
-    compile group: "com.r3.corda", name: "corda-finance", version: cordaVersion
+    compile group: "net.corda", name: "corda-finance-contracts", version: cordaOsVersion
+    compile group: "com.r3.corda", name: "corda-finance-workflows", version: cordaVersion
 
     // Dependency on Apache JMeter
     compile group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: jmeterVersion // 'compile' because we extend Java sampler.
