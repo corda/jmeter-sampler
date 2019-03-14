@@ -56,7 +56,9 @@ dependencies {
 
     // Dependency on Apache JMeter
     compile group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: jmeterVersion // 'compile' because we extend Java sampler.
-
+    
+    compile group: 'com.example', name: 'cordapp-example-contracts', version: '0.1'
+    compile group: 'com.example', name: 'cordapp-example-workflows', version: '0.1'
 }
 
 compileKotlin {
