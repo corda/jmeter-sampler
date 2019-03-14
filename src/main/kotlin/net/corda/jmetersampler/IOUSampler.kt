@@ -7,6 +7,13 @@ import net.corda.core.messaging.CordaRPCOps
 import org.apache.jmeter.config.Argument
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext
 
+/**
+ * This is a sampler using the IOUExample from the corda samples' cordapp-example.
+ * Therefore, it needs to find the example flow as a dependency - the easiest way I found of
+ * making this available is to clone the samples repo (git clone git@github.com:corda/samples),
+ * modify the build.gradle of the cordapp-example project to apply the maven plug-in and then
+ * run ./gradlew install to install the cordapp-example in my local maven repo.
+ */
 class IOUSampler : AbstractSampler() {
     companion object {
         val otherParty = Argument("otherPartyName", "", "<meta>", "The X500 name of the payee.")
