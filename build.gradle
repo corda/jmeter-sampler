@@ -31,7 +31,7 @@ repositories {
 dependencies {
 
     ext.jmeterVersion = 3.3
-    ext.cordaVersion = "4.0-RC04"
+    ext.cordaVersion = "4.0"
     ext.cordaOsVersion = "4.0"
 
     // Kotlin dependency for the Kotlin example
