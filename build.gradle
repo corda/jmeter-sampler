@@ -6,11 +6,23 @@ plugins {
 group 'com.r3.corda'
 version '1.0-SNAPSHOT'
 
-def artifactory_user = System.getenv("CORDA_ARTIFACTORY_USER")
-def artifactory_password = System.getenv("CORDA_ARTIFACTORY_PASSWORD")
+// You can define this property in ~/.gradle/gradle.properties on your dev box.
+if (! project.hasProperty('cordaArtifactoryUsername') || ext.cordaArtifactoryUsername == null) {
+    ext.cordaArtifactoryUsername = System.getenv('CORDA_ARTIFACTORY_USERNAME')
+            ?: System.getProperty('corda.artifactory.username')
+}
+
+// You can define this property in ~/.gradle/gradle.properties on your dev box.
+if (! project.hasProperty('cordaArtifactoryPassword') || ext.cordaArtifactoryPassword == null) {
+    ext.cordaArtifactoryPassword = System.getenv('CORDA_ARTIFACTORY_PASSWORD')
+            ?: System.getProperty('corda.artifactory.password')
+}
+
+def artifactory_user = ext.cordaArtifactoryUsername
+def artifactory_password = ext.cordaArtifactoryPassword
 
 repositories {
-    ext.artifactory_contextUrl = 'https://ci-artifactory.corda.r3cev.com/artifactory'
+    ext.artifactory_contextUrl = 'https://software.r3.com/artifactory'
 
     if ( artifactory_user != null && artifactory_password != null ){
         maven{ 
