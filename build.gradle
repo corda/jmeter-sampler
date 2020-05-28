@@ -37,7 +37,7 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url "$artifactory_contextUrl/corda-dependencies" }
-    maven { url "$artifactory_contextUrl/corda" }
+    maven { url "$artifactory_contextUrl/corda-enterprise" }
 }
 
 dependencies {
