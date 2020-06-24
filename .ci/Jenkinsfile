@@ -24,8 +24,9 @@ pipeline {
         timeout(time: 3, unit: 'HOURS')
     }
 
-    stages {
+    triggers { cron('H 4 * * 2-6') }
 
+    stages {
         stage('Build JMeter Sampler SDK') {
             steps {
                 sh "./gradlew clean build"
