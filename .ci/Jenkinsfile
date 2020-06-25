@@ -26,6 +26,12 @@ pipeline {
 
     triggers { cron('H 4 * * 2-6') }
 
+    environment {
+        ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials')
+        CORDA_ARTIFACTORY_USERNAME = ${ARTIFACTORY_CREDENTIALS_USR}
+        CORDA_ARTIFACTORY_PASSWORD = ${ARTIFACTORY_CREDENTIALS_PSW}
+    }
+
     stages {
         stage('Build JMeter Sampler SDK') {
             steps {
