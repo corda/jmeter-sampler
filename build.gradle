@@ -32,19 +32,20 @@ repositories {
                 password artifactory_password
             }
         }
-        maven {
-            url "$artifactory_contextUrl/r3-corda-releases"
-            credentials {
-                username artifactory_user
-                password artifactory_password
-            }
-        }
+//        maven {
+//            url "$artifactory_contextUrl/r3-corda-releases"
+//            credentials {
+//                username artifactory_user
+//                password artifactory_password
+//            }
+//        }
     }
         
     mavenLocal()
     mavenCentral()
     maven { url "$artifactory_contextUrl/corda-dependencies" }
     maven { url "$artifactory_contextUrl/corda" }
+    maven { url "$artifactory_contextUrl/r3-corda-releases" }
 }
 
 dependencies {
