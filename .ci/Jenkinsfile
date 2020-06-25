@@ -29,7 +29,7 @@ pipeline {
     stages {
         stage('Build JMeter Sampler SDK') {
             steps {
-                sh "./gradlew build --refresh-dependencies"
+                sh "./gradlew build --stacktrace"
             }
         }
     }
