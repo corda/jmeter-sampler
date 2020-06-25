@@ -35,7 +35,7 @@ pipeline {
     stages {
         stage('Build JMeter Sampler SDK') {
             steps {
-                sh "./gradlew build --stacktrace"
+                sh "./gradlew build --stacktrace -Dcorda.artifactory.username=\"\${ARTIFACTORY_CREDENTIALS_USR}\" -Dcorda.artifactory.password=\"\${ARTIFACTORY_CREDENTIALS_PSW}\""
             }
         }
     }
