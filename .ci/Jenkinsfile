@@ -27,7 +27,7 @@ pipeline {
     triggers { cron('H 4 * * 2-6') }
 
     environment {
-        ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials-for-jenkins')
+        ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials')
     }
 
     stages {
