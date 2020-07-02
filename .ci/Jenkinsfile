@@ -19,9 +19,10 @@ pipeline {
     }
 
     options {
+        ansiColor('xterm')
         timestamps()
-        buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
         timeout(time: 3, unit: 'HOURS')
+        overrideIndexTriggers (false)
     }
 
     triggers { cron('H 4 * * 2-6') }
