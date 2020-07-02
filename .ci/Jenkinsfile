@@ -22,7 +22,6 @@ pipeline {
         ansiColor('xterm')
         timestamps()
         timeout(time: 3, unit: 'HOURS')
-        overrideIndexTriggers (false)
     }
 
     triggers { cron('H 4 * * 2-6') }
