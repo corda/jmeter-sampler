@@ -1,0 +1,46 @@
+#!groovy
+/**
+ * Jenkins pipeline to build JMeter Custom Sampler SDK
+ */
+
+/**
+ * Kill already started job.
+ * Assume new commit takes precendence and results from previous
+ * unfinished builds are not required.
+ * This feature doesn't play well with disableConcurrentBuilds() option
+ */
+@Library('corda-shared-build-pipeline-steps')
+import static com.r3.build.BuildControl.killAllExistingBuildsForJob
+killAllExistingBuildsForJob(env.JOB_NAME, env.BUILD_NUMBER.toInteger())
+
+pipeline {
+    agent {
+        label 'standard'
+    }
+
+    options {
+        ansiColor('xterm')
+        timestamps()
+        timeout(time: 3, unit: 'HOURS')
+    }
+
+    triggers { cron('H 4 * * 2-6') }
+
+    environment {
+        ARTIFACTORY_CREDENTIALS = credentials('artifactory-credentials')
+    }
+
+    stages {
+        stage('Build JMeter Sampler SDK') {
+            steps {
+                sh "./gradlew build --stacktrace -Dcorda.artifactory.username=\"\${ARTIFACTORY_CREDENTIALS_USR}\" -Dcorda.artifactory.password=\"\${ARTIFACTORY_CREDENTIALS_PSW}\""
+            }
+        }
+    }
+
+    post {
+        cleanup {
+            deleteDir() /* clean up our workspace */
+        }
+    }
+}
